@@ -26,6 +26,7 @@ function getOperator(operator){
     screen.value = input;
     return;
   }
+
   input += operator
   screen.value = input;
   console.log(input);
@@ -225,7 +226,7 @@ function convertExpressionToArry() {
 
    
     if (currentToken !== "") {
-        if (currentToken === 'cos' || currentToken === 'sin' || currentToken === 'tan') {
+        if (currentToken === 'cos' || currentToken === 'sin' || currentToken === 'tan' || currentToken === 'log') {
             expressionArry.push(currentToken);
         } else {
             expressionArry.push(parseFloat(currentToken)); 
@@ -302,7 +303,6 @@ function concatenateArraysInReverseOrder() {
     const reversedStack = stack.slice().reverse(); 
     stuntingYardAlgorithmExpression = que.concat(reversedStack);
 }
-
 
 const RPNEvaluator = (input) => {
     const stack = [];
