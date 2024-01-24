@@ -21,11 +21,11 @@ function getNumber(num){
 }
 
 function getOperator(operator){
-  if(operator === '(' && input.length != 0 && input.charAt(input.length-1) != isNaN){
-    input += '*' + operator
-    screen.value = input
-    return
-  } 
+  if (operator === '(' && input.length !== 0 && !isNaN(input.charAt(input.length - 1))) {
+    input += '*' + operator;
+    screen.value = input;
+    return;
+  }
   input += operator
   screen.value = input;
   console.log(input);
