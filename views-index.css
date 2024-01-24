@@ -14,6 +14,7 @@ body {
     padding: 1.5rem;
     border-radius: 8px;
     border: 0.1rem solid black;
+    background-color: rgb(231, 236, 239);
 }
 
 .content {
@@ -29,11 +30,12 @@ body {
     width: 4rem;
     height: 2rem;
     font-size: clamp(0.9rem, 1.2vw, 1.5rem);
+    font-weight: bold;
     border: none;
     outline: none;
     margin: 0.23rem;
     border-radius: 4px;
-    transition: .1s;
+    transition: .3s;
     border: 0.1rem solid black;
 }
 
@@ -53,17 +55,18 @@ body {
     padding-right: .5em;
     background: #ecf0f3;
     border-radius: 6px;
+    overflow-x: auto;
     border: 0.1rem solid black;
 }
 
 #equal 
 {
-    background-color: #33ff5c;
+    background-color: #58d9dc;
 }
 
 #equal:hover 
 {
-    background-color: rgb(32, 215, 127);
+    background-color: #6ae1e3;
 }
 
 #ac 
@@ -74,5 +77,13 @@ body {
 
 #ac:hover 
 {
-    background-color: #ff54aa;
+    background-color: #fb7fbd;
+}
+
+#ce{
+    background-color: rgb(152, 152, 152);
+}
+
+#ce:hover{
+    background-color: rgb(162, 161, 161);
 }

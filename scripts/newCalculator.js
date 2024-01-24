@@ -10,12 +10,22 @@ let expressionArry = [];
 
 
 function getNumber(num){
+  if(num != isNaN && input.charAt(input.length -1) === ')'){
+    input += '*' + num
+    screen.value = input;
+    return;
+  }
   input += num;
   screen.value = input;
   console.log(input);
 }
 
 function getOperator(operator){
+  if(operator === '(' && input.length != 0 && input.charAt(input.length-1) != isNaN){
+    input += '*' + operator
+    screen.value = input
+    return
+  } 
   input += operator
   screen.value = input;
   console.log(input);
@@ -26,6 +36,11 @@ function clear(){
   input = '';
   screen.value = input;
   console.log("Cleared input:", input);
+}
+
+function backSpace(){
+  input = input.slice(0, -1);
+  screen.value = input;
 }
 
 ac.addEventListener('click', () => clear());
@@ -188,21 +203,17 @@ function convertExpressionToArry() {
         const currentChar = expression[i];
 
         if (/\d/.test(currentChar) || (currentChar === "." && /\d/.test(expression[i - 1]))) {
-            // If the character is a digit or a dot following a digit, add it to the currentToken
             currentToken += currentChar;
         } else if (currentChar === "-" && (i === 0 || /[\+\-\*\/\^\(]/.test(expression[i - 1]))) {
-            // If the character is a minus sign and it's the first character or follows an operator or an opening parenthesis, treat it as a negative sign
             currentToken += currentChar;
         } else if (/[\w]/.test(currentChar)) {
-            // If the character is a letter (word character), assume it's part of a function like cos, sin, tan
             currentToken += currentChar;
         } else {
-            // If the character is not a digit, a dot following a digit, or a letter, push the currentToken (if not empty) and the current character
             if (currentToken !== "") {
-                if (currentToken === 'cos' || currentToken === 'sin' || currentToken === 'tan') {
+                if (currentToken === 'cos' || currentToken === 'sin' || currentToken === 'tan' || currentToken === 'log') {
                     expressionArry.push(currentToken);
                 } else {
-                    expressionArry.push(parseFloat(currentToken)); // Convert the string to a number
+                    expressionArry.push(parseFloat(currentToken)); 
                 }
                 currentToken = "";
             }
@@ -212,19 +223,17 @@ function convertExpressionToArry() {
         }
     }
 
-    // Check if there's a remaining currentToken after the loop
+   
     if (currentToken !== "") {
         if (currentToken === 'cos' || currentToken === 'sin' || currentToken === 'tan') {
             expressionArry.push(currentToken);
         } else {
-            expressionArry.push(parseFloat(currentToken)); // Convert the string to a number
+            expressionArry.push(parseFloat(currentToken)); 
         }
     }
 
-    console.log("EXPRESSION ARRAY IS: ", expressionArry);
     convertShuntingYard(expressionArry);
     let answer = RPNEvaluator(stuntingYardAlgorithmExpression);
-    console.log(answer);
     screen.value = RPNEvaluator(stuntingYardAlgorithmExpression);
     reset();
 }
@@ -257,14 +266,11 @@ function convertShuntingYard(expression) {
 function addBracketToStack(expression) {
     if (expression === "(") {
       stack.push(expression);
-      console.log("stack: ", stack);
     } else if (expression === ")") {
         let reverseStack =  Array.from(stack).reverse();
-        console.log("reverse stack: ", reverseStack);
         reverseStack.map( x=> {
           if(x != '('){
               que.push(stack.pop());
-              console.log("poping: ", x);
           }else {
               console.log(stack.pop());
               console.log("new stack is: ", stack);
@@ -273,13 +279,11 @@ function addBracketToStack(expression) {
 }
 
 function checkForHigherImportance(expression) {
-    console.log("CHECKING IMPORTANT OF: ", expression);
-  if (
-        operatorMap.get(expression)?.importance >
-        operatorMap.get(stack[stack.length - 1])?.importance || stack[stack.length-1] === '('
+  if(
+      operatorMap.get(expression)?.importance >
+      operatorMap.get(stack[stack.length - 1])?.importance || stack[stack.length-1] === '('
   ) {
     stack.push(expression);
-    console.log("is higher: ", expression);
     return;
   } else {
     shuntingalgorthimThirdCase(que, stack, expression);
@@ -295,9 +299,8 @@ function shuntingalgorthimThirdCase(que, stack, operator) {
 }
 
 function concatenateArraysInReverseOrder() {
-    const reversedStack = stack.slice().reverse(); // Create a reversed copy of array2
+    const reversedStack = stack.slice().reverse(); 
     stuntingYardAlgorithmExpression = que.concat(reversedStack);
-    console.log(stuntingYardAlgorithmExpression);
 }
 
 
@@ -321,19 +324,19 @@ const RPNEvaluator = (input) => {
       }
    
       switch (token) {
-        case '+': // Addition
+        case '+': 
           stack.push(left + right);
           return;
-        case '-': // Subtraction
+        case '-': 
           stack.push(left - right);
           return;
-        case '*': // Multiplication
+        case '*': 
           stack.push(left * right);
           return;
-        case '/': // Division
+        case '/': 
             stack.push(left / right);
           return;
-        case '^': // Exponentiation
+        case '^': 
           stack.push(left ** right);
           return;
         case 'sin':
@@ -348,6 +351,9 @@ const RPNEvaluator = (input) => {
         case '%':
             stack.push(right % left)
             return
+        case 'log':
+            stack.push(Math.log10(right));
+            return
         default:
           throw new Error(`Invalid token: ${token}`);
       }
@@ -361,7 +367,4 @@ const RPNEvaluator = (input) => {
 
     return stack.pop();
 };
-
-convertExpressionToArry('1-2/3');
-console.log(RPNEvaluator(stuntingYardAlgorithmExpression));
 
