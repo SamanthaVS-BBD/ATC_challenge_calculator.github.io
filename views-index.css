@@ -43,8 +43,7 @@ body {
     background: #fff;
 }
 
-.display #screen 
-{
+.display #screen {
     margin-bottom: .5em;
     width: auto;
     height: 10vh;
@@ -59,13 +58,11 @@ body {
     border: 0.1rem solid black;
 }
 
-#equal 
-{
+#equal {
     background-color: #58d9dc;
 }
 
-#equal:hover 
-{
+#equal:hover {
     background-color: #6ae1e3;
 }
 
