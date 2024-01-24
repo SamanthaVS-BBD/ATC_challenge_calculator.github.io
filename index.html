@@ -4,44 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="views-index.css" type="text/css">
-
-    
-    
     <title>Calculator</title>
 </head>
     <body>
-
-        <!-- <div>
-            <label for="input">Equation: </label>
-            <input type="text" id="input" value="12/5*9+9.4*2-1" />
-            <input type="button" 
-                   value="calculate" 
-                   onclick="getElementById('result').value = calculate(getElementById('input').value)" />
-          </div>
-          
-          <div>
-            <label for="result">Result: </label>
-            <input type="text" id="result" />
-        </div> -->
-
         <main class="container">
             <section class="display">
                 <input id="screen" type="text" placeholder="0">
             </section>
 
-            <section class="btns">
+            <section class="CalculatorButtons">
                 <section class="row">
-                    <button id="ce" onclick="backspc()">CE</button>
-                    <button onclick="fact()">x!</button>
-                    <button class="btn" onclick="getOperator('*(')">(</button>
+                    <button class="btn" onclick="getOperator('^')">^</button>
+                    <button onclick="getOperator('sin(')">sin</button>
+                    <button class="btn" onclick="getOperator('(')">(</button>
                     <button class="btn" onclick="getOperator(')')">)</button>
-                    <button class="btn">%</button>
+                    <button class="btn" onclick="getOperator('%')">%</button>
                     <button id="ac" onclick="clear()">AC</button>
                 </section>
 
                 <section class="row">
-                    <button onclick="sin()">sin</button>
-                    <button onclick="pi()">π</button>
+                    <button onclick="getOperator('sin(')">cos</button>
                     <button class="btn" onclick="getNumber(7)">7</button>
                     <button class="btn" onclick="getNumber(8)">8</button>
                     <button class="btn" onclick="getNumber(9)">9</button>
@@ -49,8 +31,7 @@
                 </section>
 
                 <section class="row">
-                    <button onclick="cos()">cos</button>
-                    <button onclick="log()">log</button>
+                    <button onclick="getOperator('tan(')">tan</button>
                     <button class="btn" onclick="getNumber(4)">4</button>
                     <button class="btn" onclick="getNumber(5)">5</button>
                     <button class="btn" onclick="getNumber(6)">6</button>
@@ -58,8 +39,7 @@
                 </section>
 
                 <section class="row">
-                    <button onclick="tan()">tan</button>
-                    <button onclick="sqrt()">√</button>
+                    <button onclick="getOperator('*3.141592')">π</button>
                     <button class="btn" onclick="getNumber(1)">1</button>
                     <button class="btn" onclick="getNumber(2)">2</button>
                     <button class="btn" onclick="getNumber(3)">3</button>
@@ -67,85 +47,15 @@
                 </section>
 
                 <section class="row">
-                    <button onclick="e()">e</button>
-                    <button onclick="pow()">x <span style="position: relative; bottom: .4em; right: .1em;">y</span> </button>
+                    <button onclick="getOperator('*2.71828')">e</button>
                     <button class="btn" onclick="getNumber(0)">0</button>
-                    <button class="btn">.</button>
-                    <button id="eval" onclick="calculate(getElementById('screen').value)">=</button>
+                    <button class="btn" onclick="getNumber('.')">.</button>
+                    <button id="equal" onclick="convertExpressionToArry()">=</button>
                     <button class="btn" onclick="getOperator('+')">+</button>
                 </section>
             </section>
         </main>
-
-
-        <!-- <section class="main-wrapper">
-            <div></div>
-            <section class="cal-body">
-
-                <input class="display" id="screen" type="text" placeholder="0" readonly>
-                
-                <section class="button-container border">
-                    <section class="button-seg">
-                        <button class="cal-button">1</button>
-                        <button class="cal-button">2</button>
-                        <button class="cal-button">3</button>
-                        <button class="cal-button">4</button>
-                        <button class="cal-button">5</button>
-                    </section>
-
-                    <section class="button-seg">
-                        <button class="cal-button">1</button>
-                        <button class="cal-button">2</button>
-                        <button class="cal-button">3</button>
-                        <button class="cal-button">4</button>
-                        <button class="cal-button">5</button>
-                    </section>
-
-                    <section class="button-seg">
-                        <button class="cal-button">1</button>
-                        <button class="cal-button">2</button>
-                        <button class="cal-button">3</button>
-                        <button class="cal-button">4</button>
-                        <button class="cal-button">5</button>
-                    </section>
-
-                    <section class="button-seg">
-                        <button class="cal-button">1</button>
-                        <button class="cal-button">2</button>
-                        <button class="cal-button">3</button>
-                        <button class="cal-button">4</button>
-                        <button class="cal-button">5</button>
-                    </section>
-
-                    <section class="button-seg">
-                        <button class="cal-button">1</button>
-                        <button class="cal-button">2</button>
-                        <button class="cal-button">3</button>
-                        <button class="cal-button">4</button>
-                        <button class="cal-button">5</button>
-                    </section>
-
-                    <section class="button-seg">
-                        <button class="cal-button">1</button>
-                        <button class="cal-button">2</button>
-                        <button class="cal-button">3</button>
-                        <button class="cal-button">4</button>
-                        <button class="cal-button">5</button>
-                    </section>
-
-                    <section class="button-seg">
-                        <button class="cal-button">1</button>
-                        <button class="cal-button">2</button>
-                        <button class="cal-button">3</button>
-                        <button class="cal-button">4</button>
-                        <button class="cal-button">5</button>
-                    </section>
-                </section>
-            </section>
-            <div></div>
-        </section> -->
-
     </body>
 
-    <script src="scripts/calculator.js"></script>
+    <script src="scripts/newCalculator.js"></script>
 </html>

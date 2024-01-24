@@ -1,14 +1,6 @@
-label {
-    display: inline-block;
-    width: 4em;
-  }
-
-
-
-
 body {
     padding: 0;
-    margin: 0;
+    margin: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,10 +11,9 @@ body {
 
 .container {   
     margin-left: 1.8em;
-    padding: 20px;
+    padding: 1.5rem;
     border-radius: 8px;
     border: 0.1rem solid black;
-    
 }
 
 .content {
@@ -35,12 +26,12 @@ body {
 }
 
 .row button {
-    width: 60px;
-    height: 30px;
-    font-size: 16px;
+    width: 4rem;
+    height: 2rem;
+    font-size: clamp(0.9rem, 1.2vw, 1.5rem);
     border: none;
     outline: none;
-    margin: 5px;
+    margin: 0.23rem;
     border-radius: 4px;
     transition: .1s;
     border: 0.1rem solid black;
@@ -54,8 +45,8 @@ body {
 {
     margin-bottom: .5em;
     width: auto;
-    height: 70px;
-    font-size: 35px;
+    height: 10vh;
+    font-size: clamp(1.2rem, 5vw, 2.2rem);
     outline: none;
     border: none;
     text-align: right;
@@ -65,91 +56,23 @@ body {
     border: 0.1rem solid black;
 }
 
-#eval 
+#equal 
 {
-    background-color: #33ccff;
-    color: #fff;
+    background-color: #33ff5c;
 }
 
-#eval:hover 
+#equal:hover 
 {
-    background-color: #55d5ff;
+    background-color: rgb(32, 215, 127);
 }
 
 #ac 
-{
-    background-color: #33cc33;
-    color: #fff;
-}
-
-#ac:hover 
-{
-    background-color: #55e655;
-}
-
-#ce 
 {
     background-color: #ff3399;
     color: #fff;
 }
 
-#ce:hover 
+#ac:hover 
 {
     background-color: #ff54aa;
 }
-
-
-/* body{
-    overflow: hidden;
-}
-
-.main-wrapper{
-    display: grid;
-    grid-template-columns: 0.5fr 2fr 0.5fr;
-    width: 100vw;
-    padding-left: 5%;
-    padding-right: 5%;
-}
-
-.cal-body{
-    border: 0.1rem solid black;
-    border-radius: 10px;
-    padding: 3%;
-    gap: none;
-}
-
-.button-container{
-    display: grid;
-    grid-template-columns: repeat(7, 0.5fr);
-    padding: 1%;
-    border-radius: 10px;
-}
-
-.button-seg{
-    display: grid;
-    grid-template-columns: 0.7fr;
-    grid-template-rows: repeat(5, 0.5fr);
-    column-gap: 2%;
-    row-gap: 3%;
-}
-
-.cal-button{
-    padding: 1%;
-    border-radius: 10px;
-    border: 0.1rem solid rgb(70, 70, 70);
-    background-color: rgb(204, 204, 204);
-}
-
-.display{
-    height: 20vh;
-    background-color: skyblue;
-    border-radius: 10px;
-}
-
-.border{
-    border: 0.1rem solid rgb(0, 0, 0);
-}
-
-.cal-txt{
-    text-align: right;
-} */
